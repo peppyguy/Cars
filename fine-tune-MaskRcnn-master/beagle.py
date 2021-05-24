@@ -141,17 +141,17 @@ class CustomDataset(utils.Dataset):
                     #    num_ids.append(1)
                     #elif n['label']=='object2':
                     #    num_ids.append(2)
-                    if n['object']== 1:
+                    if n['object']== '1':
                       num_ids.append(1)
-                    elif n['object']== 2:
+                    elif n['object']== '2':
                       num_ids.append(2)
-                    elif n['object']== 3:
+                    elif n['object']== '3':
                       num_ids.append(3)
-                    elif n['object']== 4:
+                    elif n['object']== '4':
                       num_ids.append(4)
-                    elif n['object']== 5:
+                    elif n['object']== '5':
                       num_ids.append(5)
-                    elif n['object']== 6:
+                    elif n['object']== '6':
                       num_ids.append(6)
                 except:
                     pass
