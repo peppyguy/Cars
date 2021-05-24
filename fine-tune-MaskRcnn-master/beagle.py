@@ -67,7 +67,7 @@ class CustomConfig(Config):
     IMAGES_PER_GPU = 2
 
     # Number of classes (including background)
-    NUM_CLASSES = 1 + 9  # Background + number of classes (Here, 2)
+    NUM_CLASSES = 1 + 6  # Background + number of classes (Here, 2)
 
     # Number of training steps per epoch
     STEPS_PER_EPOCH = 100
@@ -230,7 +230,7 @@ def train(model):
     print("Training network heads")
     model.train(dataset_train, dataset_val,
                 learning_rate=config.LEARNING_RATE,
-                epochs=1,
+                epochs=5,
                 layers='all')
 
 
