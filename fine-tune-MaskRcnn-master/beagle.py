@@ -70,7 +70,7 @@ class CustomConfig(Config):
     NUM_CLASSES = 1 + 6  # Background + number of classes (Here, 2)
 
     # Number of training steps per epoch
-    STEPS_PER_EPOCH = 100
+    STEPS_PER_EPOCH = 150
 
     # Skip detections with < 90% confidence
     DETECTION_MIN_CONFIDENCE = 0.9
@@ -90,6 +90,8 @@ class CustomConfig(Config):
     MAX_GT_INSTANCES = 20	
 	
     TRAIN_ROIS_PER_IMAGE = 512	
+	
+    VALIDATION_STEPS = 150
 	
     BACKBONE = "resnet50"	
 	
@@ -250,7 +252,7 @@ def train(model):
     print("Training network heads")
     model.train(dataset_train, dataset_val,
                 learning_rate=0.0001,
-                epochs=400,
+                epochs=1,
                 layers='all')
 
 
