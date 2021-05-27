@@ -75,6 +75,26 @@ class CustomConfig(Config):
     # Skip detections with < 90% confidence
     DETECTION_MIN_CONFIDENCE = 0.9
 
+    # Loss weights for more precise optimization.
+    # Can be used for R-CNN training setup.
+    LOSS_WEIGHTS = {
+        "rpn_class_loss": 1.,
+        "rpn_bbox_loss": 1.,
+        "mrcnn_class_loss": 1.,
+        "mrcnn_bbox_loss": 1.,
+        "mrcnn_mask_loss": 10.
+    }
+    # Max number of final detections
+    DETECTION_MAX_INSTANCES = 30
+
+    MAX_GT_INSTANCES = 20	
+	
+    TRAIN_ROIS_PER_IMAGE = 512	
+	
+    BACKBONE = "resnet50"	
+	
+	
+
 
 ############################################################
 #  Dataset
@@ -229,8 +249,8 @@ def train(model):
     # no need to train all layers, just the heads should do it.
     print("Training network heads")
     model.train(dataset_train, dataset_val,
-                learning_rate=config.LEARNING_RATE,
-                epochs=5,
+                learning_rate=0.0001,
+                epochs=400,
                 layers='all')
 
 
