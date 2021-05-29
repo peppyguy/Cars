@@ -48,7 +48,8 @@ COCO_WEIGHTS_PATH = os.path.join(ROOT_DIR, "mask_rcnn_coco.h5")
 
 # Directory to save logs and model checkpoints, if not provided
 # through the command line argument --logs
-DEFAULT_LOGS_DIR = os.path.join(ROOT_DIR, "logs")
+DEFAULT_LOGS_DIR = os.path.join('/content/drive/MyDrive/Colab Notebooks/Cars/weights/', "res50_base")
+#DEFAULT_LOGS_DIR = os.path.join(ROOT_DIR, "logs")
 
 ############################################################
 #  Configurations
@@ -253,7 +254,7 @@ def train(model):
     model.train(dataset_train, dataset_val,
                 learning_rate=0.0001,
                 epochs=1,
-                layers='all')
+                layers='all',callbacks=[tensorboard_callback, hparams_callback])
 
 
 def color_splash(image, mask):
